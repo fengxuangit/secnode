@@ -283,7 +283,7 @@ Load_file 函数可以读文件
 
 项目地址： https://github.com/sqlmapproject/sqlmap
 
-<img src="/Users/zhoumengying/Documents/imgs/sqlmap.png" alt="sqlmap" style="zoom:75%;" />
+<img src="./imgs/sqlmap.png" alt="sqlmap" style="zoom:75%;" />
 
 
 
@@ -2290,7 +2290,7 @@ $test_unser = unserialize($class); // 反序列化同时触发_destruct函数
 
 所以我们利用这个漏洞点便可以获取web shell了
 
-<img src="/Users/zhoumengying/Documents/imgs/unserialzer1.png" alt="在这里插入图片描述" style="zoom:50%;" />
+<img src="./imgs/unserialzer1.png" alt="在这里插入图片描述" style="zoom:50%;" />
 
 
 
@@ -3271,7 +3271,7 @@ Skipfish
 
 **[OneForAll](https://github.com/shmilylty/OneForAll) **
 
-![](/Users/zhoumengying/Documents/imgs/oneforall.png)
+![](./imgs/oneforall.png)
 
 
 
@@ -3320,7 +3320,7 @@ Dnsdb搜索引擎：https://www.dnsdb.io
 
 ##### **通过 HTTPS 证书搜集**
 
-<img src="/Users/zhoumengying/Documents/imgs/jd.png" style="zoom:50%;" />
+<img src="./imgs/jd.png" style="zoom:50%;" />
 
 
 
@@ -3376,7 +3376,7 @@ ICP备案查询网：http://www.beianbeian.com/
 
    目录扫描对应信息收集来说特为重要，比如robots文件当中就可能泄露网站的后台或者CMS信息等，安装包中便泄露了网站的源码，phpinfo泄露了服务器的一些配置信息，编辑器、上传页面便可以进行利用相关的漏洞进行渗透，mysql、后台管理页面可以进行枚举爆破来尝试登陆进行下一步的安全测试。
 
-   <img src="/Users/zhoumengying/Documents/imgs/yujian.png" style="zoom:50%;" />
+   <img src="./imgs/yujian.png" style="zoom:50%;" />
 
    
 
@@ -3416,7 +3416,7 @@ ICP备案查询网：http://www.beianbeian.com/
 
   `https://github.com/urbanadventurer/WhatWeb`
 
-  ![](/Users/zhoumengying/Documents/imgs/whatweb.png)
+  ![](./imgs/whatweb.png)
 
 
 
