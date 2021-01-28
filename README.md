@@ -8,13 +8,17 @@
 
 自研知识库：**https://evalshell.com**
 
+笔记地址：**https://github.com/fengxuangit/secnode**
+
 视频地址：**https://www.bilibili.com/video/BV17A411j7Yk**
 
 **教程只是为了提供学习和研究，所有技术切勿用于非法用途！**
 
 
 
-本节课讲解：**信息收集之子域名收集**
+本节课讲解：**信息收集之主机类漏洞扫描**
+
+
 
 
 
@@ -283,7 +287,7 @@ Load_file 函数可以读文件
 
 项目地址： https://github.com/sqlmapproject/sqlmap
 
-<img src="./imgs/sqlmap.png" alt="sqlmap" style="zoom:75%;" />
+<img src="/Users/zhoumengying/Documents/imgs/sqlmap.png" alt="sqlmap" style="zoom:75%;" />
 
 
 
@@ -2290,7 +2294,7 @@ $test_unser = unserialize($class); // 反序列化同时触发_destruct函数
 
 所以我们利用这个漏洞点便可以获取web shell了
 
-<img src="./imgs/unserialzer1.png" alt="在这里插入图片描述" style="zoom:50%;" />
+<img src="/Users/zhoumengying/Documents/imgs/unserialzer1.png" alt="在这里插入图片描述" style="zoom:50%;" />
 
 
 
@@ -3271,7 +3275,7 @@ Skipfish
 
 **[OneForAll](https://github.com/shmilylty/OneForAll) **
 
-![](./imgs/oneforall.png)
+![](/Users/zhoumengying/Documents/imgs/oneforall.png)
 
 
 
@@ -3320,7 +3324,7 @@ Dnsdb搜索引擎：https://www.dnsdb.io
 
 ##### **通过 HTTPS 证书搜集**
 
-<img src="./imgs/jd.png" style="zoom:50%;" />
+<img src="/Users/zhoumengying/Documents/imgs/jd.png" style="zoom:50%;" />
 
 
 
@@ -3376,16 +3380,19 @@ ICP备案查询网：http://www.beianbeian.com/
 
    目录扫描对应信息收集来说特为重要，比如robots文件当中就可能泄露网站的后台或者CMS信息等，安装包中便泄露了网站的源码，phpinfo泄露了服务器的一些配置信息，编辑器、上传页面便可以进行利用相关的漏洞进行渗透，mysql、后台管理页面可以进行枚举爆破来尝试登陆进行下一步的安全测试。
 
-   <img src="./imgs/yujian.png" style="zoom:50%;" />
+   <img src="/Users/zhoumengying/Documents/imgs/yujian.png" style="zoom:50%;" />
 
    
 
-2. ```
+   ```
    比如说：
    /dede/ #织梦
    /wp-admin #wordpress
    /admincp.php #discuz
+   /uc-center
    ```
+
+   
 
 3. 查看robots.txt
 
@@ -3416,7 +3423,7 @@ ICP备案查询网：http://www.beianbeian.com/
 
   `https://github.com/urbanadventurer/WhatWeb`
 
-  ![](./imgs/whatweb.png)
+  ![](/Users/zhoumengying/Documents/imgs/whatweb.png)
 
 
 
@@ -3435,9 +3442,9 @@ ICP备案查询网：http://www.beianbeian.com/
 
 旁站是旁站指的是同一服务器上的其他网站，很多时候，有些网站可能不是那么容易入侵。那么，可以查看该网站所在的服务器上是否还有其他网站。如果有其他网站的话，可以先拿下其他网站的webshell，然后再提权拿到服务器的权限，最后就自然可以拿下该网站了！
 
-C段C段指的是同一内网段内的其他服务器，每个IP有ABCD四个段，举个例子，192.168.0.1，A段就是192，B段是168，C段是0，D段是1，而C段嗅探的意思就是拿下它同一C段中的其中一台服务器，也就是说是D段1-255中的一台服务器，然后利用工具嗅探拿下该服务器。
+C段指的是同一内网段内的其他服务器，每个IP有ABCD四个段，举个例子，192.168.0.1/255，A段就是192，B段是168，C段是0，D段是1，而C段嗅探的意思就是拿下它同一C段中的其中一台服务器，也就是说是D段1-255中的一台服务器，然后利用工具嗅探拿下该服务器。
 
-- 字段穷举
+- 字典穷举
 - 使用Bing接口
 
 ```
@@ -3453,11 +3460,169 @@ C段C段指的是同一内网段内的其他服务器，每个IP有ABCD四个段
 
 
 
+## 信息收集之主机漏洞扫描
+
+主机漏洞扫描工具，直白来解释就是：检测扫描目标主机中可能存在的漏洞，如果发现潜在漏洞，就报告扫描者。也就是：**资产输入源->启动漏洞扫描引擎->识别风险->输出报告。**
+
+现在市面上有很多种类的漏洞扫描工具，如何选择合适的漏洞扫描工具是很多企业首先要跨过的一道大坎。
+
+测试主机地址：192.168.124.128
+
+
+
+### 主流的主机漏洞扫描器
+
+#### Nessus
+
+**Nessus是十分强大的漏洞扫描器，内含最新的漏洞数据库，检测速度快，准确性高。**
+官方网站：https://www.tenable.com/
+
+
+
+是目前全世界最多人使用的系统漏洞扫描与分析软件。总共有超过75,000个机构使用Nessus 作为扫描该机构电脑系统的软件。
+
+<img src="./imgs/nessus1.png" style="zoom:50%;" />
+
+
+
+![](./imgs/nessus2.png)
 
 
 
 
 
+#### Nmap
+
+官方网站： https://nmap.org/
+
+> **Nmap**（**网络映射器**）是一款用于网络发现和安全审计的网络安全工具，它是自由软件。软件名字Nmap是Network Mapper的简称。通常情况下，Nmap用于：
+>
+> - 列举网络主机清单
+> - 管理服务升级调度
+> - 监控主机
+> - 服务运行状况
+>
+> Nmap可以检测目标主机是否在线、端口开放情况、侦测运行的服务类型及版本信息、侦测操作系统与设备类型等信息。 它是网络管理员必用的软件之一，用以评估网络系统安全。
 
 
 
+##### 命令参数解析
+
+| --traceroute | 扫描主机端口并跟踪路由 |
+| ------------ | ---------------------- |
+| -p           | 扫描指定端口和端口范围 |
+| -sP          | 对目标主机进行ping扫描 |
+| -A           | 使用高级功能进行扫描   |
+| -PE          | 强制执行直接的ICMPping |
+| -sV          | 探测服务版本信息       |
+| -d           | 增加调试信息地输出     |
+| -PU          | 发送udp ping           |
+| -ps          | 发送同步（SYN）报文    |
+
+```
+全面扫描：nmap-T4 -A targetip
+主机发现：nmap-T4 -sn targetip
+端口扫描：nmap-T4 targetip
+服务扫描：nmap-T4 -sV targetip
+操作系统扫描：nmap-T4 -O targetip
+```
+
+
+
+##### 常用的十条命令
+
+1. **获取远程主机的系统类型及开放端口**
+   `nmap -sS -P0 -sV -O <target>`
+
+2. **列出开放了指定端口的主机列表**
+   `nmap -sT -p 80 -oG – 192.168.1.* | grep open`
+
+3. **在网络寻找所有在线主机**
+   `nmap -sP 192.168.0.*`
+
+4. **Ping 指定范围内的 IP 地址**
+   `nmap -sP 192.168.1.100-254`
+
+5. **在某段子网上查找未占用的 IP**
+   `nmap -T4 -sP 192.168.2.0/24 && egrep “00:00:00:00:00:00″ /proc/net/arp`
+
+6.  **在局域网上扫找 Conficker 蠕虫病毒**
+   `nmap -PN -T4 -p139,445 -n -v –script=smb-check-vulns –script-args safe=1 192.168.0.1-254`
+
+7. **扫描网络上的恶意接入点 （rogue APs）**
+
+   ```
+   nmap -A -p1-85,113,443,8080-8100 -T4 –min-hostgroup 50 –max-rtt-timeout
+   2000 –initial-rtt-timeout 300 –max-retries 3 –host-timeout 20m
+   –max-scan-delay 1000 -oA wapscan 10.0.0.0/8
+   ```
+
+8. **使用诱饵扫描方法来扫描主机端口**
+
+   `nmap -sS 192.168.0.10 -D 192.168.0.2`
+
+9. **为一个子网列出反向DNS记录**
+   `nmap -R -sL 209.85.229.99/27 | awk ‘{if($3==”not”)print”(“$2″) no PTR”;else print$3″ is “$2}’ | grep ‘(‘`
+
+10. **显示网络上共有多少台 Linux 及 Win 设备?**
+
+    ```
+    nmap -F -O 192.168.0.1-255 | grep “Running: ” > /tmp/os; echo “$(cat /tmp/os | grep Linux \
+    | wc -l) Linux device(s)”; echo “$(cat /tmp/os | grep Windows | wc -l) Window(s) device”
+    ```
+
+    
+
+
+
+#### Xray
+
+官方网站：https://xray.cool/
+
+xray 是一款功能强大的安全评估工具，由多名经验丰富的一线安全从业者呕心打造而成，主要特性有:
+
+- **检测速度快**。发包速度快; 漏洞检测算法高效。
+- **支持范围广**。大至 OWASP Top 10 通用漏洞检测，小至各种 CMS 框架 POC，均可以支持。
+- **代码质量高**。编写代码的人员素质高, 通过 Code Review、单元测试、集成测试等多层验证来提高代码可靠性。
+- **高级可定制**。通过配置文件暴露了引擎的各种参数，通过修改配置文件可以极大的客制化功能。
+- **安全无威胁**。xray 定位为一款安全辅助评估工具，而不是攻击工具，内置的所有 payload 和 poc 均为无害化检查。
+
+目前支持的漏洞检测类型包括:
+
+- XSS漏洞检测 (key: xss)
+- SQL 注入检测 (key: sqldet)
+- 命令/代码注入检测 (key: cmd-injection)
+- 目录枚举 (key: dirscan)
+- 路径穿越检测 (key: path-traversal)
+- XML 实体注入检测 (key: xxe)
+- 文件上传检测 (key: upload)
+- 弱口令检测 (key: brute-force)
+- jsonp 检测 (key: jsonp)
+- ssrf 检测 (key: ssrf)
+- 基线检查 (key: baseline)
+- 任意跳转检测 (key: redirect)
+- CRLF 注入 (key: crlf-injection)
+- Struts2 系列漏洞检测 (高级版，key: struts)
+- Thinkphp系列漏洞检测 (高级版，key: thinkphp)
+- POC 框架 (key: phantasm)
+
+其中 POC 框架默认内置 Github 上贡献的 poc，用户也可以根据需要自行构建 poc 并运行
+
+![](./imgs/xray1.png)
+
+
+
+##### 服务扫描
+
+```
+./xray servicescan --target 127.0.0.1:8009 --html-output service.html
+./xray servicescan --target-file 1.file --html-output service.html
+```
+
+
+
+#### 其他扫描器
+
+https://github.com/hannoch/scaner
+
+扫描器是来自GitHub平台的开源扫描器的集合，包括子域枚举、数据库漏洞扫描器、弱密码或信息泄漏扫描器、端口扫描器、指纹扫描器以及其他大规模扫描仪、模块扫描器等。对于其他著名的扫描工具，如：awvs、nmap，w3af将不包含在集合范围内。
